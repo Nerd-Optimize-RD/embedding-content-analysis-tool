@@ -139,7 +139,7 @@ def analyze_with_deepseek(embedding_data, content_snippet):
             return "Error: Unexpected response format from Deepseek API."
             
     except Exception as e:
-        print(f"Error getting Deepseek analysis: {e}")
+        print(f"Error getting Content Analysis: {e}")
         return "Error getting analysis from Deepseek. Please check your API key and try again."
 
 def plot_embedding_overview(embedding):
@@ -1400,7 +1400,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 <div id="s-clusters-container" class="space-y-4"></div>
             </div>
             <div class="card p-6">
-                <h2 class="section-title">DeepSeek Analysis</h2>
+                <h2 class="section-title">Content Analysis</h2>
                 <div id="s-deepseek-analysis" class="markdown-content"></div>
             </div>
         </div>
@@ -1487,7 +1487,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 </div>
             </div>
 
-            <!-- DeepSeek Analysis -->
+            <!-- Content Analysis -->
             <div class="card p-6">
                 <h2 class="section-title">DeepSeek Competitor Analysis</h2>
                 <div id="c-deepseek-analysis" class="markdown-content"></div>
@@ -1728,7 +1728,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                         </div>
                     `).join('');
 
-                // Update DeepSeek analysis (render Markdown as HTML with enhanced options)
+                // Update Content Analysis (render Markdown as HTML with enhanced options)
                 if (typeof marked !== 'undefined') {
                     marked.setOptions({
                         breaks: true,
@@ -1866,7 +1866,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     strengthsList.innerHTML = '<p class="text-gray-500 text-center py-4">ไม่พบจุดแข็งที่มีนัยสำคัญ</p>';
                 }
 
-                // Update DeepSeek analysis (render Markdown as HTML with enhanced options)
+                // Update Content Analysis (render Markdown as HTML with enhanced options)
                 if (typeof marked !== 'undefined') {
                     marked.setOptions({
                         breaks: true,
@@ -1917,7 +1917,7 @@ def analyze():
     # Analyze embedding
     analysis = analyze_embedding(embedding)
     
-    # Get Deepseek analysis
+    # Get Content Analysis
     deepseek_analysis = analyze_with_deepseek(embedding, content)
     
     # Return all data
@@ -2078,7 +2078,7 @@ def compare_with_competitors():
         user_analysis = analyze_embedding(user_embedding)
 
         # Get DeepSeek competitor analysis
-        print("Getting DeepSeek analysis...")
+        print("Getting Content Analysis...")
         deepseek_analysis = analyze_competitors_with_deepseek(
             user_content, competitor_contents, analysis_data, keyword
         )
