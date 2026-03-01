@@ -1,0 +1,15 @@
+name: embedding-content-analysis-tool
+
+services:
+  embedding-content-analysis-tool:
+    build: .
+    image: embedding-content-analysis-tool:latest
+    container_name: embedding-content-analysis-tool
+    ports:
+      - "5001:5001"
+    env_file:
+      - .env
+    environment:
+      - PORT=5001
+      - APPLICATION_ROOT=/embedding-content-analysis-tool
+    restart: unless-stopped
